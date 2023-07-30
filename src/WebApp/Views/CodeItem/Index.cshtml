@@ -1,0 +1,97 @@
+﻿@model CodeItemListViewModel
+@{
+    ViewData["Title"] = "Code List";
+}
+<nav aria-label="breadcrumb" class="border-bottom">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="link-underline-opacity-0" href="#">System Management</a></li>
+        <li class="breadcrumb-item"><a class="link-underline-opacity-0" href="@Url.Action("Index", "CodeItem")">Code Parameters</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Code List</li>
+    </ol>
+</nav>
+<div class="height-5"></div>
+@await Html.PartialAsync("_Messages")
+<form class="row" method="post" id="submitForm" action="@Url.Action("Search", "CodeItem")" >
+    @Html.HiddenFor(model => model.Search.PageIndex)
+    @Html.HiddenFor(model => model.Search.PageSize)
+    <div class="col-12">
+        <div class="row">
+            <label class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start col-form-label">Category:</label>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+            @Html.DropDownListFor(model => model.Search.Category, Model.Categories, new { @class="form-select" })
+            </div>
+            <label class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start col-form-label">Name:</label>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+            @Html.TextBoxFor(model => model.Search.Name, "", new { @class="form-control" })
+            </div>
+        </div>
+        <div class="row mt-1">
+            <label class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start col-form-label"></label>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <button type="button" class="btn btn-primary" onclick="return submitForm();">Search</button>
+                <a href="@Url.Action("Create", "CodeItem")">Create</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="table-responsive small mt-3">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Name</th>
+                <th scope="col">Value</th>
+                <th scope="col">Sequence No.</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.CodeItems.Count == 0)
+            {
+                <tr>
+                    <td colspan="4">No record found.</td>
+                </tr>
+            }
+            @foreach(var item in Model.CodeItems)
+            {
+                <tr>
+                    <td>@item.Category</td>
+                    <td>@item.Name</td>
+                    <td>@item.Value</td>
+                    <td>@item.SeqNo</td>
+                    <td>
+                        <a href="@Url.Action("Detail", "CodeItem", new { id = item.CodeId })">Detail</a>
+                        <a href="@Url.Action("Edit", "CodeItem", new { id = item.CodeId })">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="row mt-3">
+        <div class="col-12 text-center">
+            @{
+                PageNumberModel pageNumbers = new PageNumberModel();
+                pageNumbers.PageSize = Model.Search.PageSize;
+                pageNumbers.TotalCount = Model.TotalCount;
+                pageNumbers.CurrentPageNo = Model.Search.PageIndex;
+                pageNumbers.PageIndexUrl = Url.Action("PageIndex", "CodeItem", new { area = "" });
+            }
+            @await Html.PartialAsync("_PageNumbers", pageNumbers)
+        </div>
+    </div>
+</div>
+
+<script>
+    function submitForm() {
+        var f = document.getElementById("submitForm");
+        console.log("test");
+        console.log(f.checkValidity());
+        if (!f.checkValidity()) {
+            f.classList.add('was-validated');
+            return false;
+        }
+        ////f.classList.remove('was-validated'); //remove class, if don't want to show error.
+        f.submit();
+        return true;
+    }
+</script>

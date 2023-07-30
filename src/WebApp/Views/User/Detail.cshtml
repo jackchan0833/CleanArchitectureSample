@@ -1,0 +1,56 @@
+﻿@model UserDetailViewModel
+@{
+    ViewData["Title"] = "User Detail";
+}
+<nav aria-label="breadcrumb" class="border-bottom">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="link-underline-opacity-0" href="#">System Management</a></li>
+        <li class="breadcrumb-item"><a class="link-underline-opacity-0" href="@Url.Action("Index", "User")">User Management</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Detail</li>
+    </ol>
+</nav>
+<div class="height-5"></div>
+<div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start custom-display-label">
+        <span>Username:</span>
+    </div>
+    <div class="col-lg-4 col-md-3 col-sm-12">
+        @Model.UserName
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start custom-display-label">
+        <span>Nick Name:</span>
+    </div>
+    <div class="col-lg-4 col-md-3 col-sm-12">
+        @Model.NickName
+    </div>
+</div>
+<div class="row mt-1">
+    <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start custom-display-label">
+        <span>Email:</span>
+    </div>
+    <div class="col-lg-4 col-md-3 col-sm-12">
+        @Model.Email
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start custom-display-label">
+        <span>Address:</span>
+    </div>
+    <div class="col-lg-4 col-md-3 col-sm-12">
+        @Model.Address
+    </div>
+</div>
+<div class="row mt-1">
+    <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start custom-display-label">
+        <span>Status:</span>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        @Model.StatusDesc
+    </div>
+</div>
+<div class="row mt-1">
+    <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start custom-display-label">
+    </div>
+    <div class="col-lg-8 col-md-9 col-sm-12">
+        <a href="@Url.Action("Edit", "User", new { id = Model.UserId })" class="btn btn-sm btn-primary">Edit</a>
+        <a href="@Url.Action("Index", "User")">Return</a>
+    </div>
+</div>

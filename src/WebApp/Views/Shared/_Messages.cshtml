@@ -1,0 +1,15 @@
+﻿@{
+    var errorMsg = TempData.GetData<string>("ErrorMessage");
+    if (!string.IsNullOrEmpty(errorMsg))
+    {
+        <div class="alert alert-danger">@errorMsg</div>
+    }
+    else
+    {
+        var msg = TempData.GetData<string>("Message");
+        if (!string.IsNullOrEmpty(msg))
+        {
+            <div class="alert alert-info">@msg</div>
+        }
+    }
+}

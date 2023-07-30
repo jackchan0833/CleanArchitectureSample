@@ -1,0 +1,81 @@
+﻿@model UserEditViewModel
+@{
+    ViewData["Title"] = "User Edit";
+}
+<nav aria-label="breadcrumb" class="border-bottom">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="link-underline-opacity-0" href="#">System Management</a></li>
+        <li class="breadcrumb-item"><a class="link-underline-opacity-0" href="@Url.Action("Index", "User")">User Management</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+    </ol>
+</nav>
+<div class="height-5"></div>
+@await Html.PartialAsync("_Messages")
+<form method="post" action="@Url.Action("Edit", "User")" id="submitForm">
+    @Html.HiddenFor(model => model.UserId)
+    <div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start col-form-label">
+            <span>Username:</span>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-12">
+            @Model.UserName
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start col-form-label">
+            <span>Nick Name:</span>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-12">
+            @Html.TextBoxFor(model => model.NickName, new { @class = "form-control", @required = "required", @maxLength = "50"})
+            <div class="invalid-feedback">
+                Please provide a nick name.
+            </div>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start col-form-label">
+            <span>Email:</span>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-12">
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @maxLength = "200"})
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start col-form-label">
+            <span>Address.:</span>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-12">
+            @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @maxLength = "500"})
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start col-form-label">
+            <span>Status:</span>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-12">
+            @Html.DropDownListFor(model => model.Status, Model.Statuses, new { @class = "form-select", @required = "required" })
+            <div class="invalid-feedback">
+                Please provide a status.
+            </div>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start col-form-label">
+        </div>
+        <div class="col-lg-8 col-md-9 col-sm-12">
+            <button type="button" class="btn btn-sm btn-primary" onclick="return submitForm();">Submit</button>
+            <a href="@Url.Action("Index", "User")">Cancel</a>
+        </div>
+    </div>
+</form>
+<script>
+    function submitForm() {
+        var f = document.getElementById("submitForm");
+        if (!f.checkValidity()) {
+            f.classList.add('was-validated');
+            return false;
+        }
+        confirmMessage("Are you want to sumbit?", function () {
+            f.submit();
+            return true;
+        });
+        //f.classList.remove('was-validated'); //remove class, if don't want to show error.
+       return false; // return false always, decide by confirm message func.
+    }
+</script>

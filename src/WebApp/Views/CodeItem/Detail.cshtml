@@ -1,0 +1,56 @@
+﻿@model CodeItemDetailViewModel
+@{
+    ViewData["Title"] = "Code Item Detail";
+}
+<nav aria-label="breadcrumb" class="border-bottom">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a class="link-underline-opacity-0" href="#">System Management</a></li>
+        <li class="breadcrumb-item"><a class="link-underline-opacity-0" href="@Url.Action("Index", "CodeItem")">Code Parameters</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Detail</li>
+    </ol>
+</nav>
+<div class="height-5"></div>
+<div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start custom-display-label">
+        <span>Category:</span>
+    </div>
+    <div class="col-lg-4 col-md-3 col-sm-12">
+        @Model.Category
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start custom-display-label">
+        <span>Name:</span>
+    </div>
+    <div class="col-lg-4 col-md-3 col-sm-12">
+        @Model.Name
+    </div>
+</div>
+<div class="row mt-1">
+    <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start custom-display-label">
+        <span>Value:</span>
+    </div>
+    <div class="col-lg-4 col-md-3 col-sm-12">
+        @Model.Value
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start custom-display-label">
+        <span>Sequence No.:</span>
+    </div>
+    <div class="col-lg-4 col-md-3 col-sm-12">
+        @Model.SeqNo
+    </div>
+</div>
+<div class="row mt-1">
+    <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start custom-display-label">
+        <span>Remarks:</span>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        @Model.Remarks
+    </div>
+</div>
+<div class="row mt-1">
+    <div class="col-lg-2 col-md-3 col-sm-12 text-lg-end text-md-end text-sm-start custom-display-label">
+    </div>
+    <div class="col-lg-8 col-md-9 col-sm-12">
+        <a href="@Url.Action("Edit", "CodeItem", new { id = Model.CodeId })" class="btn btn-sm btn-primary">Edit</a>
+        <a href="@Url.Action("Index", "CodeItem")">Return</a>
+    </div>
+</div>

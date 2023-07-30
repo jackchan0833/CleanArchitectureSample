@@ -1,0 +1,131 @@
+body {
+    font-size: 16px;
+    font-family: Arial,Helvetica,Sans-Serif;
+}
+
+.navbar {
+    --bs-navbar-padding-y: 0;
+}
+
+.navbar-brand {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    /*background-color: rgba(0, 0, 0, .25);
+            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);*/
+}
+
+.nav-user-photo {
+    width: 25px;
+    height: 25px;
+}
+
+.height-5 {
+    height: 5px;
+    overflow: hidden;
+    display: block;
+}
+
+.height-15 {
+    height: 15px;
+    overflow: hidden;
+    display: block;
+}
+
+.logo-ico {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.logo-name {
+    vertical-align: middle;
+}
+
+.top-nav {
+    background-color: #262f3e;
+    height: 48px;
+}
+
+.main-container {
+    position: absolute;
+    top: 48px;
+    bottom: 0px;
+}
+
+.main-container-row {
+    min-height: 100%;
+}
+
+.left-nav {
+    background-color: #1e222d;
+    border-top: solid 1px #6a779f;
+}
+/*col-md */
+/*@media (min-width: 768px){
+            .left-nav2 {
+                position: relative;
+                top: 0px;
+            }
+        }*/
+/*col-lg */
+/*@media (min-width: 992px) {
+            .left-nav {
+                position: absolute;
+                top: 48px;
+                bottom: 0px;
+            }
+        }*/
+.left-nav-header {
+    color: white;
+}
+
+.left-nav-level1 {
+}
+
+.left-nav-level1-item {
+}
+
+    .left-nav-level1-item .bi {
+        color: #7c878e;
+    }
+
+    .left-nav-level1-item .nav-link {
+        padding: 5px 5px;
+        color: #c1c6c8;
+    }
+
+.left-nav-level2 {
+    background-color: #151822;
+}
+
+.left-nav-level2-item {
+    padding-left: 1.25rem;
+}
+
+    .left-nav-level2-item .bi {
+        color: #7c878e;
+    }
+
+    .left-nav-level2-item .nav-link {
+        padding: 5px 5px;
+        color: #c1c6c8;
+    }
+
+.left-nav-splitter {
+    color: #ddd;
+}
+
+.offcanvas-custom {
+    background-color: #1e222d;
+}
+
+.offcanvas-header-custom button {
+    color: #ddd;
+}
+
+.offcanvas-title-custom {
+    color: #ddd;
+}
+.custom-display-label {
+    font-weight: bold;
+}

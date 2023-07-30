@@ -1,0 +1,30 @@
+﻿
+<nav class="navbar navbar-expand-lg navbar-dark top-nav">
+    <div class="container-fluid">
+        <div class="navbar-brand float-left">
+            <button class="nav-link text-white d-md-none d-inline" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="nav-link d-inline" href="@Url.Action("Index", "Home")">
+                <img src="~/images/logo.jpg" class="logo-ico" alt="Bootstrap">
+                <span class="logo-name">Navbars</span>
+            </a>
+        </div>
+        <div class="navbar-buttons navbar-header float-right">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="nav-user-photo" src="~/images/avatars/user.jpg" alt="" />
+                    <span class="user-info text-white">
+                        <small>Welcome,</small>
+                        Jack
+                    </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

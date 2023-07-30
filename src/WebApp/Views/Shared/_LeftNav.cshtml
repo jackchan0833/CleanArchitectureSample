@@ -1,0 +1,79 @@
+﻿
+<div class="offcanvas-md offcanvas-start offcanvas-custom" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+    <div class="offcanvas-header offcanvas-header-custom">
+        <h5 class="offcanvas-title offcanvas-title-custom" id="sidebarMenuLabel">Company name</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-md-flex flex-column p-0 pt-2 pt-lg-3 overflow-y-auto">
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center left-nav-header text-uppercase">
+            <span>Reports</span>
+        </h6>
+
+        <ul class="nav flex-column left-nav-level1">
+            <li class="nav-item left-nav-level1-item">
+                <a class="nav-link d-flex align-items-center justify-content-between" href="#collapseExample1" data-bs-toggle="collapse">
+                    <span>
+                        <span class="bi bi-file-earmark-text"></span> System Management
+                    </span>
+                    <span class="bi bi-chevron-up" id="collapseExample1-icon"></span>
+                </a>
+                <div class="flex-row collapse show" id="collapseExample1">
+                    <ul class="nav flex-column left-nav-level2">
+                        <li class="nav-item left-nav-level2-item">
+                            <a class="nav-link d-flex" href="@Url.Action("Index", "User")">
+                                <span class="bi bi-dot"></span>
+                                User Management
+                            </a>
+                        </li>
+                        <li class="nav-item left-nav-level2-item">
+                            <a class="nav-link d-flex" href="@Url.Action("Index", "CodeItem")">
+                                <span class="bi bi-dot"></span>
+                                Code Parameters
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item left-nav-level1-item">
+                <a class="nav-link d-flex align-items-center justify-content-between" href="#collapseExample2" data-bs-toggle="collapse">
+                    <span>
+                        <span class="bi bi bi-file-earmark-text"></span> Others
+                    </span>
+                    <span class="bi bi-chevron-up" id="collapseExample2-icon"></span>
+                </a>
+                <div class="flex-row collapse show" id="collapseExample2">
+                    <ul class="nav flex-column left-nav-level2">
+                        <li class="nav-item left-nav-level2-item">
+                            <a class="nav-link d-flex" href="#">
+                                <span class="bi bi-dot"></span>
+                                Item 1
+                            </a>
+                        </li>
+                        <li class="nav-item left-nav-level2-item">
+                            <a class="nav-link d-flex" href="#">
+                                <span class="bi bi-dot"></span>
+                                Item 2
+                            </a>
+                        </li>
+                        <li class="nav-item left-nav-level2-item">
+                            <a class="nav-link d-flex" href="#">
+                                <span class="bi bi-dot"></span>
+                                Item 3
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <hr class="my-3 left-nav-splitter">
+        <ul class="nav flex-column left-nav-level1">
+            <li class="nav-item left-nav-level1-item">
+                <a class="nav-link d-flex align-items-center justify-content-between" href="#">
+                    <span>
+                        <span class="bi bi-door-closed"></span> Sign out
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
